@@ -57,5 +57,4 @@ class EloquentArticleRepository implements ArticleRepository
         $reflectionProperty->setAccessible(true);
         $reflectionProperty->setValue($object, $value);
     }
-
 }

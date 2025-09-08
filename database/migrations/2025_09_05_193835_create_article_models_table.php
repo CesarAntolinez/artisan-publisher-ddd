@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('article_models', function (Blueprint $table) {
+        Schema::create('articles', function (Blueprint $table) {
             $table->uuid('id')->primary(); // Usaremos UUIDs como clave primaria
             $table->uuid('author_id');
             $table->string('title');

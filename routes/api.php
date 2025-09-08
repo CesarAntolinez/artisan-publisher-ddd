@@ -10,3 +10,6 @@ Route::get('/user', function (Request $request) {
 Route::post('/articles', \Writing\Infrastructure\Http\Controllers\Api\V1\CreateArticleController::class)
     ->name('articles.store');
 
+Route::post('/articles/{articleId}/propose', \App\Writing\Infrastructure\Http\Controllers\Api\V1\ProposeArticleForReviewController::class);
+
+

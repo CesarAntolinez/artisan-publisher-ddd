@@ -25,4 +25,9 @@ class ArticleModel extends Model
         'content',
         'status',
     ];
+
+    public function comments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(CommendModel::class, 'article_id');
+    }
 }

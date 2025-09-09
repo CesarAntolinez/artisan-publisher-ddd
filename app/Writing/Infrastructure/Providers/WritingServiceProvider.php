@@ -2,8 +2,8 @@
 
 namespace Writing\Infrastructure\Providers;
 
+use Writing\Domain\Repositories\ArticleRepository;
 use Illuminate\Support\ServiceProvider;
-use Writing\Domain\ArticleRepository;
 use Writing\Infrastructure\Persistence\Eloquent\EloquentArticleRepository;
 
 class WritingServiceProvider extends ServiceProvider

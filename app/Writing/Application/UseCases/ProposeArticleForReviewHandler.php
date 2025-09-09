@@ -2,10 +2,10 @@
 
 namespace Writing\Application\UseCases;
 
-use Writing\Domain\ArticleRepository;
-// En el futuro, podríamos crear excepciones de dominio personalizadas.
-use Exception;
+use Writing\Domain\Repositories\ArticleRepository;
 use Writing\Domain\Exceptions\ArticleNotFoundException;
+
+// En el futuro, podríamos crear excepciones de dominio personalizadas.
 
 class ProposeArticleForReviewHandler
 {

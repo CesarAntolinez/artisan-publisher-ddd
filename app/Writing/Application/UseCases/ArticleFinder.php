@@ -2,8 +2,8 @@
 
 namespace Writing\Application\UseCases;
 
+use Writing\Domain\Repositories\ArticleRepository;
 use Writing\Application\DTOs\ArticleDTO;
-use Writing\Domain\ArticleRepository;
 use Writing\Domain\Exceptions\ArticleNotFoundException;
 
 class ArticleFinder

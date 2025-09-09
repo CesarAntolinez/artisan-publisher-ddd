@@ -2,7 +2,7 @@
 
 namespace Writing\Application\DTOs;
 
-use Writing\Domain\Article;
+use Writing\Domain\Entities\Article;
 
 class ArticleDTO
 {

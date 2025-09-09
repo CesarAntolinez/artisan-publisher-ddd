@@ -1,9 +1,9 @@
 <?php
 
-namespace Writing\Domain;
+namespace Writing\Domain\Repositories;
 
 // Usamos un 'use' para importar nuestra entidad y que el código sea más limpio.
-use Writing\Domain\Article;
+use Writing\Domain\Entities\Article;
 
 interface ArticleRepository
 {

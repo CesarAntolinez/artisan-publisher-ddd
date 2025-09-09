@@ -1,6 +1,6 @@
 <?php
 
-namespace Writing\Domain;
+namespace Writing\Domain\Entities;
 
 class Article
 {

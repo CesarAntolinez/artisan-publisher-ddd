@@ -2,9 +2,9 @@
 
 namespace Writing\Application\UseCases\CreateArticle;
 
+use Writing\Domain\Entities\Article;
+use Writing\Domain\Repositories\ArticleRepository;
 use Illuminate\Support\Str;
-use Writing\Domain\Article;
-use Writing\Domain\ArticleRepository;
 
 class CreateArticleHandler
 {

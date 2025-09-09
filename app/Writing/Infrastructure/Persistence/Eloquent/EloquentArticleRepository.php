@@ -2,8 +2,9 @@
 
 namespace Writing\Infrastructure\Persistence\Eloquent;
 
-use Writing\Domain\Article;
-use Writing\Domain\ArticleRepository;
+use Writing\Domain\Entities\Article;
+use Writing\Domain\Repositories\ArticleRepository;
+
 class EloquentArticleRepository implements ArticleRepository
 {
 

@@ -28,6 +28,6 @@ class ArticleModel extends Model
 
     public function comments(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(CommendModel::class, 'article_id');
+        return $this->hasMany(CommentModel::class, 'article_id');
     }
 }

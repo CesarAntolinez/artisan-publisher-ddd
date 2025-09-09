@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('commends', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('article_id')->constrained('articles')->onDelete('cascade');
             $table->string('author');

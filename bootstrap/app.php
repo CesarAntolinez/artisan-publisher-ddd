@@ -1,9 +1,8 @@
 <?php
 
-use Illuminate\Foundation\Application;
-use Illuminate\Foundation\Configuration\Exceptions;
-use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Foundation\{Application, Configuration\Exceptions, Configuration\Middleware};
 use Illuminate\Http\Request;
+use Writing\Domain\Exceptions\{ArticleNotFoundException, CannotCommentOnArticleException};
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -17,11 +16,11 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         // Aquí registramos nuestro manejador personalizado
-        $exceptions->renderable(function (\Writing\Domain\Exceptions\ArticleNotFoundException $e, Request $request) {
+        $exceptions->renderable(function (ArticleNotFoundException|CannotCommentOnArticleException $e, Request $request) {
             // Verificamos si la petición espera una respuesta JSON
             if ($request->wantsJson()) {
                 return response()->json(
-                    ['message' => $e->getMessage()],
+                    ['message' => $e->getMessage(), 'code' => $e->getCode()],
                     \Illuminate\Http\Response::HTTP_NOT_FOUND // Código 404
                 );
             }

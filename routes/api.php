@@ -14,4 +14,5 @@ Route::get('/articles/{articleId}', V1\FindArticleController::class)->name('arti
 Route::post('/articles/{articleId}/propose', V1\ProposeArticleForReviewController::class)->name('articles.propose');
 
 
+Route::post('/articles/{articleId}/comments', V1\AddCommentController::class);
 

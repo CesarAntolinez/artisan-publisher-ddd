@@ -2,7 +2,7 @@
 
 namespace Writing\Infrastructure\Http\Controllers\Api\V1;
 
-use Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Writing\Application\UseCases\ProposeArticleForReviewHandler;
 

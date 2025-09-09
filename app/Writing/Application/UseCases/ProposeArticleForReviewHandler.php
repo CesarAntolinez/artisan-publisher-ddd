@@ -2,6 +2,7 @@
 
 namespace Writing\Application\UseCases;
 
+use Illuminate\Events\Dispatcher;
 use Writing\Domain\Repositories\ArticleRepository;
 use Writing\Domain\Exceptions\ArticleNotFoundException;
 
@@ -9,7 +10,10 @@ use Writing\Domain\Exceptions\ArticleNotFoundException;
 
 class ProposeArticleForReviewHandler
 {
-    public function __construct(private readonly ArticleRepository $repository)
+    public function __construct(
+        private readonly ArticleRepository $repository,
+        private readonly Dispatcher $eventDispatcher
+    )
     {
     }
 
@@ -30,5 +34,10 @@ class ProposeArticleForReviewHandler
 
         // 4. Guardamos el estado actualizado de la entidad en la base de datos.
         $this->repository->save($article);
+
+        // Despachamos los eventos registrados
+        foreach ($article->releaseDomainEvents() as $event) {
+            $this->eventDispatcher->dispatch($event);
+        }
     }
 }

@@ -2,8 +2,13 @@
 
 namespace Writing\Domain\Entities;
 
+use Writing\Domain\Events\ArticleWasProposedForReview;
+use Writing\Domain\Support\RecordsDomainEvents;
+
 class Article
 {
+    use RecordsDomainEvents; // <-- Usa el trait
+
     private string $id;
     private string $authorId;
     private string $title;
@@ -31,6 +36,11 @@ class Article
         }
 
         $this->status = self::STATUS_IN_REVIEW;
+
+        // ¡Aquí está la magia! Registramos el evento.
+        $this->recordDomainEvent(
+            new ArticleWasProposedForReview($this->id, $this->authorId)
+        );
     }
 
     // --- Getters para acceder a las propiedades privadas ---
